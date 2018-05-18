@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+
+#RewriteRule ^(?:[^/]*/)*([^/.]+\.(?:jpe?g|gif|bmp|png|tiff|css|js))$ /mqplanetServices/public/$1 [R=301,L,NC]
+#<Files ~ "\.(css|jpe?g|png|ico|gif|js)$">
+#Allow from all
+#</Files>
