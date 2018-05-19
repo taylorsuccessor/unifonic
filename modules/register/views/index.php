@@ -14,10 +14,10 @@
 
 
                     <li>
-                        <label class="description">First Name </label>
+                        <label class="description">First Name d </label>
                         <div>
                             <input name="first_name" class="element text medium" type="text" maxlength="255" value="<?= Request::get('first_name') ?>"/>
-                       <?php printFieldErrorList('first_name',$messageList);?>
+                            <?php printFieldErrorList('first_name',$messageList);?>
                         </div>
                     </li>
                     <li>
@@ -47,7 +47,7 @@
                             <?php }elseif(array_key_exists('verifyResult',$messageList)){ ?>
 
                                 <p style="color:red">Sorry,some thing wrong error happen while sending sms.</p>
-        <?php } ?>
+                            <?php } ?>
                         </div>
                     </li>
 
@@ -77,7 +77,7 @@
             </li>
         </ul>
     </form>
-<? }else{
+<?php }else{
     if($messageList['registerResult']){?>
 
         <p style="color:green">You have registered successfully !!</p>
@@ -87,7 +87,9 @@
 
         <p style="color:red">An error accrued, please try again</p>
 
-<?php } } ?>
+    <?php } ?>
+
+<?php } ?>
 
 
 

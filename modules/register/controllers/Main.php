@@ -94,7 +94,7 @@ class Main extends BaseModules{
         $this->messageList = $this->validateRegister->validateResult();
 
         if( count($this->messageList)==0){
-            $this->messageList['registerResult'] = $this->dbRepo->updateUser( );
+            $this->messageList['registerResult'] = $this->dbRepo->updateUser(Request::getRequestData() );
         }
 
     }
