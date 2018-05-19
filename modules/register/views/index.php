@@ -14,7 +14,7 @@
 
 
                     <li>
-                        <label class="description">First Name d </label>
+                        <label class="description">First Name  </label>
                         <div>
                             <input name="first_name" class="element text medium" type="text" maxlength="255" value="<?= Request::get('first_name') ?>"/>
                             <?php printFieldErrorList('first_name',$messageList);?>
