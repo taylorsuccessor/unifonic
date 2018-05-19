@@ -3,9 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Sample MT4 WebApi Form</title>
+    <title>Unifonic</title>
     <link rel="stylesheet" type="text/css" href="<?=_PROJECTSUBFOLDER_;?>/public/main.css" media="all">
-    <script src="<?=_PROJECTSUBFOLDER_;?>/public/jquery-1.11.1.min.js"></script>
 
 
 </head>

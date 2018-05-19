@@ -33,16 +33,16 @@ class Main extends BaseModules{
      * @return null
      */
     public function __construct(
-        $dbRepo=Database::class,
-        $sms=SMS::class,
-        $validateRegister=Register::class,
-        $validateVerify =VerifySms::class)
+        $dbRepo = null,
+        $sms = null,
+        $validateRegister = null,
+        $validateVerify = null)
     {
 
-        $this->dbRepo=new $dbRepo;
-        $this->sms= new $sms;
-        $this->validateRegister= new  $validateRegister;
-        $this->validateVerify=  new  $validateVerify;
+        $this->dbRepo=($dbRepo == null)? new Database():$dbRepo;
+        $this->sms=($sms == null)? new SMS():$sms;
+        $this->validateRegister=($validateRegister == null )? new  Register():$validateRegister;
+        $this->validateVerify= ($validateVerify ==null)? new VerifySms(): $validateVerify;
     }
 
     /**
@@ -71,8 +71,7 @@ class Main extends BaseModules{
      * @return null
      */
     public function postIndex( ){
-
-        if(Request::get('submit')=='verify' ){
+         if(Request::get('submit')=='verify' ){
             $this->verify();
         }else {
             $this->register();
@@ -92,10 +91,10 @@ class Main extends BaseModules{
      * @return null
      */
     public function register(){
-        $this->messageList = $this->validateRegister->validateResult(Request::getRequestData());
+        $this->messageList = $this->validateRegister->validateResult();
 
         if( count($this->messageList)==0){
-            $this->messageList['registerResult'] = $this->dbRepo->updateUser(Request::getRequestData());
+            $this->messageList['registerResult'] = $this->dbRepo->updateUser( );
         }
 
     }
@@ -112,7 +111,7 @@ class Main extends BaseModules{
      */
 
     public function verify(){
-        $this->messageList=$this->validateVerify->validateResult(Request::getRequestData());
+        $this->messageList=$this->validateVerify->validateResult( );
         if( !count($this->messageList)){
             $this->messageList['verifyResult']=$this->sendVerifyCode(Request::get('phone'));
         }

@@ -8,16 +8,24 @@ class Request {
 
 
 
-    public static function getRequestData($requestData=null){
+    public static function setRequestData($requestData=null){
 
         self::$requestData =($requestData ==null)?  $_POST + $_GET:$requestData;
-        return self::$requestData;
 
     }
 
-    public static function get($param){
+    public static function getRequestData(){
+
         if(self::$requestData ==null){
-            self::getRequestData();
+            self::setRequestData();
+        }
+        return self::$requestData;
+    }
+
+    public static function get($param){
+
+        if(self::$requestData ==null){
+            self::setRequestData();
         }
 
 

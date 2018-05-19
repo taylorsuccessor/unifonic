@@ -1,11 +1,12 @@
 <?php
 
+if(!isset($composer_running)){
 spl_autoload_register(function($className){
-
 
    require_once preg_replace(["/^".preg_quote('App')."/","/\\\/"],[_BASEFILE_,"/"],$className) .'.php';
 
 });
+}
 
 include _BASEFILE_.'/core/tools/globalFunctions.php';
 
